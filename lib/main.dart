@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  // runApp(const MyApp());
+  runApp(const App());
+}
+
+class App extends StatelessWidget {
+  const App({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Sandwhich Shop Ap',
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Sandwhich Shop')),
+        body: const Center(child: Text('Welcome to the Sandwhich Shop!')),
+      ),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
