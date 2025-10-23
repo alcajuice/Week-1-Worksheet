@@ -43,6 +43,18 @@ class _OrderScreenState extends State<OrderScreen> {
     }
   }
 
+  void _switchSandwichFootlong() {
+    setState(() {
+      _sandwichType = 'Footlong';
+    });
+  }
+
+  void _switchSandwich6inch() {
+    setState(() {
+      _sandwichType = '6-Inch';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,6 +85,28 @@ class _OrderScreenState extends State<OrderScreen> {
                     foregroundColor: Colors.white,
                   ),
                   child: const Text('Remove'),
+                ),
+
+                ElevatedButton(
+                  onPressed: _switchSandwichFootlong,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: _sandwichType == '6-Inch'
+                        ? Colors.grey
+                        : Colors.blue,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const Text('Footlong'),
+                ),
+
+                ElevatedButton(
+                  onPressed: _switchSandwich6inch,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: _sandwichType == 'Footlong'
+                        ? Colors.grey
+                        : Colors.blue,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const Text('6-Inch'),
                 ),
               ],
             ),
