@@ -29,6 +29,7 @@ class OrderScreen extends StatefulWidget {
 
 class _OrderScreenState extends State<OrderScreen> {
   int _quantity = 0;
+  String _sandwichType = 'Footlong';
 
   void _increaseQuantity() {
     if (_quantity < widget.maxQuantity) {
@@ -50,22 +51,25 @@ class _OrderScreenState extends State<OrderScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            OrderItemDisplay(_quantity, 'Footlong'),
+            OrderItemDisplay(_quantity, _sandwichType),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
                   onPressed: _increaseQuantity,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
+                    backgroundColor: _quantity < widget.maxQuantity
+                        ? Colors.green
+                        : Colors.grey,
                     foregroundColor: Colors.white,
                   ),
                   child: const Text('Add'),
                 ),
+
                 ElevatedButton(
                   onPressed: _decreaseQuantity,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
+                    backgroundColor: _quantity != 0 ? Colors.red : Colors.grey,
                     foregroundColor: Colors.white,
                   ),
                   child: const Text('Remove'),
