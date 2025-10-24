@@ -86,22 +86,22 @@ class _OrderScreenState extends State<OrderScreen> {
                 ),
 
                 ElevatedButton(
-                  onPressed: _switchSandwichFootlong,
+                  onPressed: _sandwichType == 'Footlong'
+                      ? null
+                      : _switchSandwichFootlong,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: _sandwichType == '6-Inch'
-                        ? Colors.grey
-                        : Colors.blue,
+                    backgroundColor: Colors.blue,
                     foregroundColor: Colors.white,
                   ),
                   child: const Text('Footlong'),
                 ),
 
                 ElevatedButton(
-                  onPressed: _switchSandwich6inch,
+                  onPressed: _sandwichType == '6-Inch'
+                      ? null
+                      : _switchSandwich6inch,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: _sandwichType == 'Footlong'
-                        ? Colors.grey
-                        : Colors.blue,
+                    backgroundColor: Colors.blue,
                     foregroundColor: Colors.white,
                   ),
                   child: const Text('6-Inch'),
